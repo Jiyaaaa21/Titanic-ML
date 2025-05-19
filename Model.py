@@ -33,7 +33,8 @@ combined['Embarked'] = combined['Embarked'].fillna(combined['Embarked'].mode()[0
 combined['Fare'] = combined['Fare'].fillna(combined['Fare'].median())
 combined['Cabin'] = combined['Cabin'].fillna('Missing')
 
-print(train_df.isnull().sum())
+print(combined.isnull().sum())
+
 
 
 combined['Title'] = combined['Name'].str.extract(r' ([A-Za-z]+)\.', expand=False) # To extract titles from name
@@ -73,7 +74,7 @@ print(classification_report(y_val, y_pred))
 
 test_predictions = rf.predict(test_processed)
 
-original_test = pd.read_csv('/mnt/data/titanic_data/test.csv')
+original_test = pd.read_csv("test.csv")
 submission = pd.DataFrame({
     'PassengerId': original_test['PassengerId'],
     'Survived': test_predictions
