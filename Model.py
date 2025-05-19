@@ -80,6 +80,6 @@ submission = pd.DataFrame({
     'Survived': test_predictions
 })
 
-submission.to_csv('/mnt/data/titanic_submission.csv', index=False)
+submission.to_csv('titanic_submission.csv', index=False)
 print("Submission file saved as titanic_submission.csv")
 
